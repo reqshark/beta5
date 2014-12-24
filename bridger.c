@@ -70,7 +70,7 @@ void* worker2() {
     r = getevents (s, NN_IN, 10);
     if(r == 1){
       char *b = NULL;
-      nn_recv (s, &b, NN_MSG, 0);
+      nn_recv (s, &b, NN_MSG, 1);
       chan_send (messages, b);
       nn_freemsg (b);
     }
