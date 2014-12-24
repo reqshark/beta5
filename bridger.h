@@ -31,6 +31,10 @@ chan_t* messages;
 chan_t* done;
 chan_t* jobs;
 
+//int sz = sizeof TCP_NO_DELAY;
+int optval = 1;
+size_t optlen = sizeof optval;
+
 void* worker();
 void* worker2();
 void init_channels(void);

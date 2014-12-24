@@ -40,7 +40,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    //var optval: Int = 1
+    //optlen: UnsafePointer<Int32>
     nn_setsockopt (s, NN_SUB, NN_SUB_SUBSCRIBE, "", 0)
+    nn_setsockopt (s, NN_TCP, NN_TCP_NODELAY, &optval, optlen)
     nn_connect (s, ADDR)
     nn_sleep (100)
     init_channels()
