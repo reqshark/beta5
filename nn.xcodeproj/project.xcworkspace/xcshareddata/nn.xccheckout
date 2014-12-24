@@ -22,7 +22,7 @@
 		<key>25D37A346AD8702B11E5D79BACB9920D9BF262CD</key>
 		<string>../..</string>
 		<key>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</key>
-		<string>../..nanomsg.ios/</string>
+		<string>../..nanomsg.ios</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>git.gs:reqshark/nn.git</string>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</string>
+			<string>25D37A346AD8702B11E5D79BACB9920D9BF262CD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>nanomsg.ios</string>
+			<string>nn</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>25D37A346AD8702B11E5D79BACB9920D9BF262CD</string>
+			<string>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</string>
 			<key>IDESourceControlWCCName</key>
-			<string>nn</string>
+			<string>nnnanomsg.ios</string>
 		</dict>
 	</array>
 </dict>

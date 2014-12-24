@@ -1,3 +1,11 @@
+//
+//  bridger.h
+//  nn
+//
+//  created by Bent Cardan
+//  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
+//
+
 #import "chan.h"
 #include "chan.h"
 
@@ -19,19 +27,11 @@
 
 int getevents (int s, int events, int timeout);
 
-
 chan_t* messages;
 chan_t* done;
 chan_t* jobs;
 
 void* worker();
 void* worker2();
-
-//pthread_t th;
-//pthread_create(&th, NULL, worker, NULL);
-
-//pthread_t poll_rc;
-//pthread_create(&poll_rc, NULL, worker2, NULL);
-
 
 void init_channels(void);

@@ -2,26 +2,25 @@
 //  bridger.c
 //  nn
 //
-//  Created by Bent Cardan on 12/23/14.
-//  Copyright (c) 2014 Bent Cardan. All rights reserved.
+//  created by Bent Cardan
+//  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
+#include <stdio.h>
 #include "bridger.h"
 #include "string.h"
+
 
 int s, r, eid;
 
 int getevents (int s, int events, int timeout){
   fd_set pollset;
   int rcvfd;
-  int sndfd;
   int maxfd;
   int grc;
-  
-  
+  int revents;
   size_t fdsz;
   struct timeval tv;
-  int revents;
   
   maxfd = 0;
   FD_ZERO (&pollset);
@@ -34,15 +33,6 @@ int getevents (int s, int events, int timeout){
       maxfd = rcvfd + 1;
   }
   
-  //strictly for sending the next
-  if (events & NN_OUT) {
-    fdsz = sizeof (sndfd);
-    grc = nn_getsockopt (s, NN_SOL_SOCKET, NN_SNDFD, (char*) &sndfd, &fdsz);
-    FD_SET (sndfd, &pollset);
-    if (sndfd + 1 > maxfd)
-      maxfd = sndfd + 1;
-  }
-  
   if (timeout >= 0) {
     tv.tv_sec = timeout / 1000;
     tv.tv_usec = (timeout % 1000) * 1000;
@@ -52,8 +42,6 @@ int getevents (int s, int events, int timeout){
   revents = 0;
   if ((events & NN_IN) && FD_ISSET (rcvfd, &pollset))
     revents |= NN_IN;
-  if ((events & NN_OUT) && FD_ISSET (sndfd, &pollset))
-    revents |= NN_OUT;
   return revents;
 }
 
@@ -63,6 +51,7 @@ void* worker(){
   double l = 0;
   
   while (chan_recv(messages, &message) == 0) {
+    ++x;
     if(x % 10000 == 0){
       char *msg = (char *)message;
       const char* fourteen = "14";
@@ -71,16 +60,12 @@ void* worker(){
       sscanf(ptr, "%lf", &d);
       if(l){
         float f = (d-l)/1000;
-        printf("10K messages over TCP in %g seconds\n", f);
+        printf("10K msgs in %g secs. %d msgs recvd\n", f, x);
       }
       l = d;
     }
-    x++;
+    
   }
-  
-  // Notify that all jobs were received.
-  printf("received all jobs\n");
-  chan_send(done, "1");
   return NULL;
 }
 

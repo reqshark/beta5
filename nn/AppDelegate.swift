@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  nn
 //
-//  Created by Bent Cardan on 12/23/14.
-//  Copyright (c) 2014 Bent Cardan. All rights reserved.
+//  created by Bent Cardan
+//  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
 import UIKit

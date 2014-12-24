@@ -1,6 +1,9 @@
 //
-//created by Bent Cardan
-//reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
+//  ViewController.swift
+//  nn
+//
+//  created by Bent Cardan
+//  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
 import UIKit
