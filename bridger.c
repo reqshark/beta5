@@ -7,6 +7,7 @@
 //
 
 #include "bridger.h"
+#include "string.h"
 
 int s, r, eid;
 
@@ -58,9 +59,25 @@ int getevents (int s, int events, int timeout){
 
 void* worker(){
   void* message;
-  while (chan_recv(messages, &message) == 0)
-  {
-    printf("received message: %s\n", message);
+  int x, y = 0;
+  x = y;
+  
+  char someSort[14];
+  while (chan_recv(messages, &message) == 0) {
+    ++x;
+    if(x % 10000 == 0){
+      
+      strcpy(someSort, &message[13]);
+      
+      
+      //str2int (y, someSort, 10);
+      
+      str
+      
+      strtok(
+      
+      printf("received message: %s %d\nsomeSort: %d\n", message, x, y);
+    }
   }
   
   // Notify that all jobs were received.
