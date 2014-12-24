@@ -14,14 +14,11 @@
 int s, r, eid;
 
 int getevents (int s, int events, int timeout){
-  fd_set pollset;
-  int rcvfd;
-  int maxfd;
-  int grc;
-  int revents;
+  int rcvfd, maxfd, grc, revents;
   size_t fdsz;
   struct timeval tv;
   
+  fd_set pollset;
   maxfd = 0;
   FD_ZERO (&pollset);
   
@@ -45,7 +42,7 @@ int getevents (int s, int events, int timeout){
   return revents;
 }
 
-void* worker(){
+void* worker() {
   void* message;
   int x=0;
   double l = 0;
@@ -64,7 +61,6 @@ void* worker(){
       }
       l = d;
     }
-    
   }
   return NULL;
 }
@@ -75,14 +71,14 @@ void* worker2() {
     if(r == 1){
       char *b = NULL;
       nn_recv (s, &b, NN_MSG, 0);
-      chan_send(messages, b);
+      chan_send (messages, b);
       nn_freemsg (b);
     }
   }
 }
 
 
-void init_channels(void){
+void init_channels(void) {
   jobs = chan_init(0);
   done = chan_init(0);
   messages = chan_init(0);

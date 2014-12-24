@@ -33,5 +33,4 @@ chan_t* jobs;
 
 void* worker();
 void* worker2();
-
 void init_channels(void);
