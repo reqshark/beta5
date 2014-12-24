@@ -7,6 +7,21 @@
 //
 
 import UIKit
+var NN_SUB: CInt = 33
+let s = nn_socket(AF_SP,NN_SUB)
+
+let addr = ADDR
+let r = getevents(s, NN_IN, 10)
+
+var jobs = chan_init(0)
+var done = chan_init(0)
+var messages = chan_init(0)
+
+func greet(name: String, day: String) -> String {
+  return "Hello \(name), today is \(day)."
+}
+
+var e = greet("BOB", "Tuesday")
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -32,10 +47,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //@IBAction this is something the user touches
-    //@IBOutlet some function or thing sets the view object
-    //@IBAction && @IBOutlet
+    nn_setsockopt (s, NN_SUB, NN_SUB_SUBSCRIBE, "", 0)
+    nn_connect (s, ADDR)
+    nn_sleep (100)
     
+    init_channels()
+    
+    //pthread_create(&th,NULL,worker,NULL)
+    
+    
+    println(r)
     
   }
 
@@ -44,6 +65,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Dispose of any resources that can be recreated.
   }
 
-
 }
 
+//<#UnsafePointer<pthread_attr_t>#>, <#CFunctionPointer<((UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>)>#>, <#UnsafeMutablePointer<Void>#>

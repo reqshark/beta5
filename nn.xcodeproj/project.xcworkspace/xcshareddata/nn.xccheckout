@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A3266023-EA45-4DF5-9B37-8B15AE4F77D4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>nn</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>25D37A346AD8702B11E5D79BACB9920D9BF262CD</key>
+		<string>git.gs:reqshark/nn.git</string>
+		<key>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</key>
+		<string>https://github.com/reqshark/nanomsg.ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>nn.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>25D37A346AD8702B11E5D79BACB9920D9BF262CD</key>
+		<string>../..</string>
+		<key>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</key>
+		<string>../..nanomsg.ios/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>git.gs:reqshark/nn.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>25D37A346AD8702B11E5D79BACB9920D9BF262CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nanomsg.ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>25D37A346AD8702B11E5D79BACB9920D9BF262CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nn</string>
+		</dict>
+	</array>
+</dict>
+</plist>
