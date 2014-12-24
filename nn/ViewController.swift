@@ -1,9 +1,6 @@
 //
-//  ViewController.swift
-//  nn
-//
-//  Created by Bent Cardan on 12/23/14.
-//  Copyright (c) 2014 Bent Cardan. All rights reserved.
+//created by Bent Cardan
+//reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
 import UIKit
@@ -16,12 +13,6 @@ let r = getevents(s, NN_IN, 10)
 var jobs = chan_init(0)
 var done = chan_init(0)
 var messages = chan_init(0)
-
-func greet(name: String, day: String) -> String {
-  return "Hello \(name), today is \(day)."
-}
-
-var e = greet("BOB", "Tuesday")
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -46,18 +37,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     nn_setsockopt (s, NN_SUB, NN_SUB_SUBSCRIBE, "", 0)
     nn_connect (s, ADDR)
     nn_sleep (100)
-    
     init_channels()
-    
-    //pthread_create(&th,NULL,worker,NULL)
-    
-    
-    println(r)
-    
   }
 
   override func didReceiveMemoryWarning() {
@@ -66,5 +49,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
   }
 
 }
-
-//<#UnsafePointer<pthread_attr_t>#>, <#CFunctionPointer<((UnsafeMutablePointer<Void>) -> UnsafeMutablePointer<Void>)>#>, <#UnsafeMutablePointer<Void>#>

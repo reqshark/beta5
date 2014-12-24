@@ -59,25 +59,23 @@ int getevents (int s, int events, int timeout){
 
 void* worker(){
   void* message;
-  int x, y = 0;
-  x = y;
+  int x=0;
+  double l = 0;
   
-  char someSort[14];
   while (chan_recv(messages, &message) == 0) {
-    ++x;
     if(x % 10000 == 0){
-      
-      strcpy(someSort, &message[13]);
-      
-      
-      //str2int (y, someSort, 10);
-      
-      str
-      
-      strtok(
-      
-      printf("received message: %s %d\nsomeSort: %d\n", message, x, y);
+      char *msg = (char *)message;
+      const char* fourteen = "14";
+      const char *ptr = strstr(msg, fourteen);
+      double d;
+      sscanf(ptr, "%lf", &d);
+      if(l){
+        float f = (d-l)/1000;
+        printf("10K messages over TCP in %g seconds\n", f);
+      }
+      l = d;
     }
+    x++;
   }
   
   // Notify that all jobs were received.
