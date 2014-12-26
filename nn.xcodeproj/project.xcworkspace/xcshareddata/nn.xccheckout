@@ -10,6 +10,8 @@
 	<string>nn</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>0D12E96F3D3BF70C5D5D0B5B68C4D6FB4A8FE0E2</key>
+		<string>git.gs:g/iphone-sample.git</string>
 		<key>25D37A346AD8702B11E5D79BACB9920D9BF262CD</key>
 		<string>git.gs:reqshark/nn.git</string>
 		<key>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</key>
@@ -19,6 +21,8 @@
 	<string>nn.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>0D12E96F3D3BF70C5D5D0B5B68C4D6FB4A8FE0E2</key>
+		<string>../../..</string>
 		<key>25D37A346AD8702B11E5D79BACB9920D9BF262CD</key>
 		<string>../..</string>
 		<key>5D2B55A0696FDBB92D082C57DBF78D64867C5CAF</key>
@@ -32,6 +36,14 @@
 	<string>25D37A346AD8702B11E5D79BACB9920D9BF262CD</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0D12E96F3D3BF70C5D5D0B5B68C4D6FB4A8FE0E2</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
