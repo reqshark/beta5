@@ -7,11 +7,14 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "bridger.h"
 #include "string.h"
 
 
 int s, r, eid;
+
+char* data;
 
 int getevents (int s, int events, int timeout){
   int rcvfd, maxfd, grc, revents;
@@ -42,50 +45,73 @@ int getevents (int s, int events, int timeout){
   return revents;
 }
 
-void* worker() {
-  void* message;
-  int x=0;
-  double l = 0;
-  
-  while (chan_recv(messages, &message) == 0) {
-    ++x;
-    if(x % 10000 == 0){
-      char *msg = (char *)message;
-      const char* fourteen = "14";
-      const char *ptr = strstr(msg, fourteen);
-      double d;
-      sscanf(ptr, "%lf", &d);
-      if(l){
-        float f = (d-l)/1000;
-        printf("10K msgs in %g secs. %d msgs recvd\n", f, x);
-      }
-      l = d;
-    }
+/* 
+ void* worker1() {
+  while (ready == 1) {
+    printf("%s" , data);
   }
   return NULL;
 }
+*/
+
+void ready(char* data){
+
+  printf("%s", data);
+  
+  free(data);
+  
+}
+
+int receivedMessageHandler( char* b ) {
+
+  u_long x;
+  x = strlen(b);
+  data= calloc (x+1, sizeof(x));
+  strncpy(data,b,x);
+  ready(data);
+  return x;
+}
+
 
 void* worker2() {
+    
+  int xxx;
+  int progress = 0 ;
+  
   while (1) {
     r = getevents (s, NN_IN, 10);
+  
+    
     if(r == 1){
       char *b = NULL;
-      nn_recv (s, &b, NN_MSG, 1);
-      chan_send (messages, b);
+      printf ("%d\n", r);
+      xxx = nn_recv (s, &b, NN_MSG, 1);
+      progress++;
+      printf ("%d %d %d \n", r, xxx, progress );
+
+      
+      receivedMessageHandler( b );
+      
       nn_freemsg (b);
+      
+        
     }
   }
 }
 
 
+
 void init_channels(void) {
-  jobs = chan_init(0);
-  done = chan_init(0);
-  messages = chan_init(0);
   
-  pthread_t th;
-  pthread_create(&th, NULL, worker, NULL);
+//  jobs = chan_init(0);
+//  done = chan_init(0);
+//  messages = chan_init(0);
   
   pthread_t poll_rc;
   pthread_create(&poll_rc, NULL, worker2, NULL);
+
+//  pthread_t poll_rc2;
+//  pthread_create(&poll_rc2, NULL, worker1, NULL);
+
+  
 }

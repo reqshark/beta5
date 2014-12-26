@@ -8,14 +8,15 @@
 
 import UIKit
 var NN_SUB: CInt = 33
+
 let s = nn_socket(AF_SP,NN_SUB)
 
 let addr = ADDR
 let r = getevents(s, NN_IN, 10)
 
-var jobs = chan_init(0)
-var done = chan_init(0)
-var messages = chan_init(0)
+//var jobs = chan_init(0)
+//var done = chan_init(0)
+//var messages = chan_init(0)
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -47,6 +48,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     nn_connect (s, ADDR)
     nn_sleep (100)
     init_channels()
+
+    let rc = getevents(s, NN_IN, 10)
+    let zxcv = rc
   }
 
   override func didReceiveMemoryWarning() {

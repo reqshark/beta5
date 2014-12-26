@@ -349,7 +349,8 @@ static int unbuffered_chan_recv(chan_t* chan, void** data)
     return -1;
   }
   
-  if (data)
+//  if (data)
+    if (*data)
   {
     *data = chan->data;
   }
