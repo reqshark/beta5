@@ -6,9 +6,6 @@
 //  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
-#import "chan.h"
-#include "chan.h"
-
 #import "nn.h"
 #include "nn.h"
 #import "pubsub.h"

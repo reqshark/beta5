@@ -100,8 +100,6 @@
 		3C9501BA1A49E3E700722D57 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 3C9501621A49E3E700722D57 /* thread.c */; };
 		3C9501BB1A49E3E700722D57 /* wire.c in Sources */ = {isa = PBXBuildFile; fileRef = 3C9501641A49E3E700722D57 /* wire.c */; };
 		3C9501C11A49FC0100722D57 /* bridger.c in Sources */ = {isa = PBXBuildFile; fileRef = 3C9501C01A49FC0100722D57 /* bridger.c */; };
-		3C9501C41A4A01D300722D57 /* chan.c in Sources */ = {isa = PBXBuildFile; fileRef = 3C9501C21A4A01D300722D57 /* chan.c */; };
-		3C9501C71A4A020500722D57 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 3C9501C51A4A020500722D57 /* queue.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,10 +310,6 @@
 		3C9501651A49E3E700722D57 /* wire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wire.h; sourceTree = "<group>"; };
 		3C9501BE1A49F1A700722D57 /* bridger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridger.h; sourceTree = "<group>"; };
 		3C9501C01A49FC0100722D57 /* bridger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bridger.c; sourceTree = "<group>"; };
-		3C9501C21A4A01D300722D57 /* chan.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = chan.c; sourceTree = "<group>"; };
-		3C9501C31A4A01D300722D57 /* chan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chan.h; sourceTree = "<group>"; };
-		3C9501C51A4A020500722D57 /* queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = queue.c; sourceTree = "<group>"; };
-		3C9501C61A4A020500722D57 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = queue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,10 +333,6 @@
 		3C66DEBE1A49884600C0C508 = {
 			isa = PBXGroup;
 			children = (
-				3C9501C51A4A020500722D57 /* queue.c */,
-				3C9501C61A4A020500722D57 /* queue.h */,
-				3C9501C21A4A01D300722D57 /* chan.c */,
-				3C9501C31A4A01D300722D57 /* chan.h */,
 				3C9501C01A49FC0100722D57 /* bridger.c */,
 				3C9501BE1A49F1A700722D57 /* bridger.h */,
 				3C95009B1A49E3E700722D57 /* nanomsg.ios */,
@@ -851,7 +841,6 @@
 				3C9501801A49E3E700722D57 /* sub.c in Sources */,
 				3C9501B81A49E3E700722D57 /* sleep.c in Sources */,
 				3C95018F1A49E3E700722D57 /* fq.c in Sources */,
-				3C9501C71A4A020500722D57 /* queue.c in Sources */,
 				3C9501791A49E3E700722D57 /* pair.c in Sources */,
 				3C9501891A49E3E700722D57 /* respondent.c in Sources */,
 				3C9501751A49E3E700722D57 /* symbol.c in Sources */,
@@ -883,7 +872,6 @@
 				3C9501901A49E3E700722D57 /* lb.c in Sources */,
 				3C9501A71A49E3E700722D57 /* streamhdr.c in Sources */,
 				3C9501B51A49E3E700722D57 /* queue.c in Sources */,
-				3C9501C41A4A01D300722D57 /* chan.c in Sources */,
 				3C9501AA1A49E3E700722D57 /* chunk.c in Sources */,
 				3C9501AC1A49E3E700722D57 /* clock.c in Sources */,
 				3C9501A51A49E3E700722D57 /* literal.c in Sources */,
