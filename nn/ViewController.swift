@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import Foundation
+
 var NN_SUB: CInt = 33
-
 let s = nn_socket(AF_SP,NN_SUB)
-
 let addr = ADDR
-let r = getevents(s, NN_IN, 10)
-
-//var jobs = chan_init(0)
-//var done = chan_init(0)
-//var messages = chan_init(0)
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+  
+  //@IBOutlet weak var msgTextBox: UITextView!
+  
+  //func changeMsgText(){
+    //msgTextBox.text = "changing"
+  //}
+  
+  @IBOutlet weak var msgTextBox: UITextView!
+  
   @IBOutlet weak var simpleTextField: UITextField!
   
   @IBOutlet weak var simpleLabel: UILabel!
@@ -41,21 +44,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //var optval: Int = 1
-    //optlen: UnsafePointer<Int32>
     nn_setsockopt (s, NN_SUB, NN_SUB_SUBSCRIBE, "", 0)
     nn_setsockopt (s, NN_TCP, NN_TCP_NODELAY, &optval, optlen)
     nn_connect (s, ADDR)
     nn_sleep (100)
-    init_channels()
-
-    let rc = getevents(s, NN_IN, 10)
-    let zxcv = rc
+   
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+      while(true){
+        if(getevents(s, NN_IN, 10) == 1){
+          var str: UnsafeMutablePointer = msgGet(s)
+          dispatch_async(dispatch_get_main_queue(), {
+            self.msgTextBox.text = String.fromCString(str)!
+            msgFree(str)
+          })
+        }
+      }
+    })
+    
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
+  
+  override func viewDidAppear(animated: Bool) {
+    println("something else interesting")
+  }
+  
 }

@@ -6,8 +6,8 @@
 //  reqshark software. lifestyles of the rich and/or resourceful. authored 12/23/2014
 //
 
-//#import "chan.h"
-//#include "chan.h"
+#import "chan.h"
+#include "chan.h"
 
 #import "nn.h"
 #include "nn.h"
@@ -17,12 +17,6 @@
 #include "tcp.h"
 #import "sleep.h"
 #include "sleep.h"
-#import "inproc.h"
-#include "inproc.h"
-
-#include <pthread.h>
-
-
 
 #include "poller.h"
 #include <sys/select.h>
@@ -33,14 +27,8 @@
 
 int getevents (int s, int events, int timeout);
 
-//chan_t* messages;
-//chan_t* done;
-//chan_t* jobs;
-
-//int sz = sizeof TCP_NO_DELAY;
 int optval = 1;
 size_t optlen = sizeof optval;
 
-void* worker();
-void* worker2();
-void init_channels(void);
+char* msgGet(int s);
+int msgFree(char *);

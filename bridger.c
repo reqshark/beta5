@@ -11,10 +11,7 @@
 #include "bridger.h"
 #include "string.h"
 
-
 int s, r, eid;
-
-char* data;
 
 int getevents (int s, int events, int timeout){
   int rcvfd, maxfd, grc, revents;
@@ -45,73 +42,13 @@ int getevents (int s, int events, int timeout){
   return revents;
 }
 
-/* 
- void* worker1() {
-  while (ready == 1) {
-    printf("%s" , data);
-  }
-  return NULL;
-}
-*/
-
-void ready(char* data){
-
-  printf("%s", data);
-  
-  free(data);
-  
+char* msgGet(int s){
+  char *b = NULL;
+  nn_recv (s, &b, NN_MSG, 1);
+  return b;
 }
 
-int receivedMessageHandler( char* b ) {
-
-  u_long x;
-  x = strlen(b);
-  data= calloc (x+1, sizeof(x));
-  strncpy(data,b,x);
-  ready(data);
-  return x;
-}
-
-
-void* worker2() {
-    
-  int xxx;
-  int progress = 0 ;
-  
-  while (1) {
-    r = getevents (s, NN_IN, 10);
-  
-    
-    if(r == 1){
-      char *b = NULL;
-      printf ("%d\n", r);
-      xxx = nn_recv (s, &b, NN_MSG, 1);
-      progress++;
-      printf ("%d %d %d \n", r, xxx, progress );
-
-      
-      receivedMessageHandler( b );
-      
-      nn_freemsg (b);
-      
-        
-    }
-  }
-}
-
-
-
-void init_channels(void) {
-  
-//  jobs = chan_init(0);
-//  done = chan_init(0);
-//  messages = chan_init(0);
-  
-  pthread_t poll_rc;
-  pthread_create(&poll_rc, NULL, worker2, NULL);
-
-//  pthread_t poll_rc2;
-//  pthread_create(&poll_rc2, NULL, worker1, NULL);
-
-  
+int msgFree(char* m){
+  nn_freemsg(m);
+  return 0;
 }
