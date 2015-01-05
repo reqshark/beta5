@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   //func changeMsgText(){
     //msgTextBox.text = "changing"
   //}
+  //@IBOutlet weak var msgCount: UILabel!
+  @IBOutlet weak var msgCount: UILabel!
   
   @IBOutlet weak var msgTextBox: UITextView!
   
@@ -48,12 +50,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     nn_setsockopt (s, NN_TCP, NN_TCP_NODELAY, &optval, optlen)
     nn_connect (s, ADDR)
     nn_sleep (100)
+    
+    var count = 0
    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
       while(true){
         if(getevents(s, NN_IN, 10) == 1){
           var str: UnsafeMutablePointer = msgGet(s)
           dispatch_async(dispatch_get_main_queue(), {
+            self.msgCount.text = "# of msgs recvd: " + String(++count)
             self.msgTextBox.text = String.fromCString(str)!
             msgFree(str)
           })
